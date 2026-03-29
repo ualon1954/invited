@@ -107,7 +107,7 @@ const API = "https://script.google.com/macros/s/AKfycbw2tUEmEtfZqh8uQfCbyciwxF-J
 
 const params = new URLSearchParams(window.location.search);
 const phone = params.get("phone");
-
+//notes
 fetch(API + "?phone=" + phone)
   .then(r => r.json())
   .then(d => {
