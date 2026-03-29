@@ -113,8 +113,8 @@ fetch(API + "?phone=" + phone)
   .then(d => {
     if (!d) { document.getElementById("msg").innerText = "לא נמצא מוזמן"; return; }
     //name.value = d["שם"];
-    phone.value = d["טלפון"];
-   //guests.value = d["מוזמנים מקסימום"];
+    phone.value = d["Phone"];
+    guests.value = d["Qynt"];
   });
 
 let sent = false;
