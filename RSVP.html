@@ -103,7 +103,7 @@ p#msg {
 </div>
 
 <script>
-const API = "https://script.google.com/macros/s/AKfycbwkQvTVyOGnRYX8B3mbYT9bNoMc2sEug6B0vBCc3it_hTggJmb8PzoxBzOc1K-sc6KG/exec";
+const API = "https://script.google.com/macros/s/AKfycbyE4qDJGoiYMu6dQgBD6lDQa9QPzKF9ewoCPyWSHXv1itTlaGZVTHuICEt3JMvnYq9I/exec";
 
 const params = new URLSearchParams(window.location.search);
 const phone = params.get("phone");
@@ -127,8 +127,8 @@ function send() {
     method: "POST",
     body: JSON.stringify({
       phone: phone,
-      attendance: attendance.value,
-      guests: guests.value
+      attendance: attendance.value
+      //guests: guests.value
       //notes: notes.value
     })
   })
