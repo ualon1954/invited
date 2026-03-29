@@ -103,18 +103,18 @@ p#msg {
 </div>
 
 <script>
-const API = "https://script.google.com/macros/s/AKfycbyf9CfgEBfLOKn2iLvG_zXDMNJbQhheDZQeQ5prstSYJfXYz_Cpk___6aKU3p8RPiyn/exec";
+const API = "https://script.google.com/macros/s/AKfycbx3eANOF37PT_4Habh9KzlEsRf7O7t6re01BW01ztLcfyF7kvxZceez29i5axPNBKnc/exec";
 
 const params = new URLSearchParams(window.location.search);
 const phone = params.get("phone");
-//notes
+
 fetch(API + "?phone=" + phone)
   .then(r => r.json())
   .then(d => {
     if (!d) { document.getElementById("msg").innerText = "לא נמצא מוזמן"; return; }
     //name.value = d["שם"];
-    phone.value = d["Phone"];
-    //guests.value = d["מוזמנים מקסימום"];
+    phone.value = d["טלפון"];
+    guests.value = d["מוזמנים מקסימום"];
   });
 
 let sent = false;
