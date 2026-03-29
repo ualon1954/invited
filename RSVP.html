@@ -114,7 +114,7 @@ fetch(API + "?phone=" + phone)
     if (!d) { document.getElementById("msg").innerText = "לא נמצא מוזמן"; return; }
     //name.value = d["שם"];
     phone.value = d["Phone"];
-    guests.value = d["Qynt"];
+    //guests.value = d["Qynt"];
   });
 
 let sent = false;
@@ -128,7 +128,7 @@ function send() {
     body: JSON.stringify({
       phone: phone,
       attendance: attendance.value,
-      guests: guests.value
+      //guests: guests.value
       //notes: notes.value
     })
   })
