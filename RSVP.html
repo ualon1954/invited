@@ -103,7 +103,7 @@ p#msg {
 </div>
 
 <script>
-const API = "https://script.google.com/macros/s/AKfycbxgkumoAzlbFSEvCVQfzQNDp8nqdPR0_NRLedjqowr_j2JY84VO3OYnFFvbXZqLRMIo/exec";
+const API = "https://script.google.com/macros/s/AKfycbwCd6gZlpM1R1UhGAj0xQyus-HFxCOxtw5gYOONsdHvWlGSsHwq7yQD1Ea6uM3o1dEf/exec";
 
 const params = new URLSearchParams(window.location.search);
 const phone = params.get("phone");
@@ -114,7 +114,7 @@ fetch(API + "?phone=" + phone)
     if (!d) { document.getElementById("msg").innerText = "לא נמצא מוזמן"; return; }
     //name.value = d["שם"];
     phone.value = d["Phone"];
-    //guests.value = d["Qynt"];
+    guests.value = d["Qynt"];
   });
 
 let sent = false;
@@ -127,8 +127,8 @@ function send() {
     method: "POST",
     body: JSON.stringify({
       phone: phone,
-      attendance: attendance.value
-      //guests: guests.value
+      attendance: attendance.value,
+      guests: guests.value
       //notes: notes.value
     })
   })
