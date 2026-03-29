@@ -86,7 +86,7 @@ p#msg {
 <div class="container">
   <p>נשמח לראותכם חוגגים איתנו ❤️</p>
 
-  <input id="name">
+  <input id="name" disabled>
   <input id="phone" disabled>
 
   <select id="attendance">
@@ -103,7 +103,7 @@ p#msg {
 </div>
 
 <script>
-const API = "https://script.google.com/macros/s/AKfycbwm3OxgqVzusvhHLVTY5LJcbHOqGiMSW2v7PUEZUZ8DYMG_9VHneOTFS6XnwV_uj2yhaw/exec";
+const API = "https://script.google.com/macros/s/AKfycbw2tUEmEtfZqh8uQfCbyciwxF-JbcI87gx5kqNzCtpkhjaxZtu94EB-lKquy1PkY_3H/exec";
 
 const params = new URLSearchParams(window.location.search);
 const phone = params.get("phone");
@@ -112,9 +112,9 @@ fetch(API + "?phone=" + phone)
   .then(r => r.json())
   .then(d => {
     if (!d) { document.getElementById("msg").innerText = "לא נמצא מוזמן"; return; }
-    name.value = d["שם"];
-    phone.value = d["טלפון"];
-    guests.value = d["מוזמנים מקסימום"];
+    //name.value = d["שם"];
+    phone.value = d["Phone"];
+    //guests.value = d["מוזמנים מקסימום"];
   });
 
 let sent = false;
@@ -126,10 +126,11 @@ function send() {
   fetch(API, {
     method: "POST",
     body: JSON.stringify({
+      source: "system2",
       phone: phone,
       attendance: attendance.value,
-      guests: guests.value,
-      notes: notes.value
+      //guests: guests.value,
+      //notes: notes.value
     })
   })
   .then(() => {
