@@ -6,75 +6,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet">
 
-<style>
-body {
-  margin: 0;
-  font-family: 'Roboto', sans-serif;
-  direction: rtl;
-  text-align: center;
-  background: linear-gradient(#fff8f0, #f7f1e0);
-  color: #333;
-}
-
-.hero {
-  background: url('https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
-  height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-}
-
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 48px;
-  margin: 0;
-}
-
-.container {
-  background: white;
-  max-width: 450px;
-  margin: -50px auto 50px auto;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  animation: fadeIn 1s ease-in-out;
-}
-
-input, select, textarea, button {
-  width: 100%;
-  margin: 12px 0;
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  font-size: 16px;
-}
-
-textarea { resize: none; }
-
-button {
-  background: #b89b5e;
-  color: white;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-button:hover { background: #a4884c; }
-
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
-}
-
-p#msg {
-  font-size: 16px;
-  color: #b89b5e;
-  font-weight: bold;
-}
-</style>
+<link rel="stylesheet" href="styles/resp.css" />
 </head>
 
 <body>
@@ -87,14 +19,18 @@ p#msg {
   <p>נשמח לראותכם חוגגים איתנו ❤️</p>
 
   <input id="name" disabled>
-  <input id="phone" disabled>
+  <input id="mobile" disabled>
+  <div class = "atend" dir="rtl">
+    <select id="attendance">
+      <option value="מגיע">נגיע בשמחה 🎉</option>
+      <option value="לא מגיע">לא נוכל להגיע</option>
+    </select>
 
-  <select id="attendance">
-    <option value="מגיע">נגיע בשמחה 🎉</option>
-    <option value="לא מגיע">לא נוכל להגיע</option>
-  </select>
-
-  <input id="guests" type="number">
+    <!-- <input id="guests" type="number"> -->
+    <!-- <button type="button" class="btninc" onclick="changeValue(1)">+</button> -->
+    <input  id="guests" type="number" value="1" min="1" max="8">
+  </div>
+  <!-- <button type="button" class="btninc" onclick="changeValue(-1)">-</button> -->
   <textarea id="notes" placeholder="הערות (כשרות, הסעות וכו')"></textarea>
 
   <button onclick="send()">אישור הגעה</button>
@@ -102,43 +38,7 @@ p#msg {
   <p id="msg"></p>
 </div>
 
-<script>
-//const API = "https://script.google.com/macros/s/AKfycbx6uTxT536lhpqiIAXcuuYtYvOYeCHxNsBkdDyxTYSS-rBR218sdtVuscUKUoTCv7HS/exec";
-const API = "https://script.google.com/macros/s/AKfycbwNBFvU_GRxPBZLhwPwGqXWl8lVNhaw4yJtOWnzwlHCQjhrLl1w3CGj_0L6rWbeowGW-w/exec";
-
-const params = new URLSearchParams(window.location.search);
-const phone = params.get("phone");
-
-fetch(API + "?phone=" + phone)
-  .then(r => r.json())
-  .then(d => {
-    if (!d) { document.getElementById("msg").innerText = "לא נמצא מוזמן"; return; }
-    //name.value = d["שם"];
-    phone.value = d["Phone"];
-    guests.value = d["Qynt"];
-  });
-
-let sent = false;
-
-function send() {
-  if (sent) return;
-  sent = true;
-
-  fetch(API , {
-    method: "POST",
-    body: JSON.stringify({
-      phone: phone,
-      attendance: attendance.value,
-      guests: guests.value
-      //notes: notes.value
-    })
-  })
-  .then(() => {
-    msg.innerText = "❤️ תודה! נתראה בחתונה!";
-    msg.scrollIntoView({behavior: "smooth"});
-  });
-}
-</script>
+<script src="scripts/resp.js"></script>
 
 </body>
 </html>
