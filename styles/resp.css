@@ -59,10 +59,11 @@ button {
    
   width: 30px; 
   text-align: center;
-  margin-right: 10px;
+  
 }
 #attendance {
-    width: 200px;
+    /* width: 150px; */
+    display: block;
     }
 button:hover { background: #a4884c; }
 

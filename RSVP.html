@@ -20,17 +20,17 @@
 
   <input id="name" disabled>
   <input id="mobile" disabled>
-  <div class = "atend" dir="rtl">
+  <!-- <div class = "atend" dir="rtl"> -->
     <select id="attendance">
       <option value="מגיע">נגיע בשמחה 🎉</option>
       <option value="לא מגיע">לא נוכל להגיע</option>
     </select>
 
     <!-- <input id="guests" type="number"> -->
-    <!-- <button type="button" class="btninc" onclick="changeValue(1)">+</button> -->
-    <input  id="guests" type="number" value="1" min="1" max="8">
-  </div>
-  <!-- <button type="button" class="btninc" onclick="changeValue(-1)">-</button> -->
+    <button type="button" class="btninc" onclick="changeValue(1)">+</button>
+    <input  id="guests"  value="1" min="1" max="8">
+  <!-- </div> -->
+  <button type="button" class="btninc" onclick="changeValue(-1)">-</button>
   <textarea id="notes" placeholder="הערות (כשרות, הסעות וכו')"></textarea>
 
   <button onclick="send()">אישור הגעה</button>

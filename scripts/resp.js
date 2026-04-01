@@ -1,5 +1,5 @@
   function changeValue(step) {
-  let input = document.getElementById("qty");
+  let input = document.getElementById("guests");
   let value = parseInt(input.value) || 0;
   input.value = Math.max(0, value + step);
 }
