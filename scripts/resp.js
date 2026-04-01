@@ -14,7 +14,7 @@ const API = "https://script.google.com/macros/s/AKfycbw87u6zfmBnAuwOweCy7NgDqw78
 const params = new URLSearchParams(window.location.search);
 const phone = params.get("phone");
 const attendance = document.getElementById("attendance");
-const qty = document.getElementById("guests");
+const qty = document.getElementById("incnum");
 
 attendance.addEventListener("change", function () {
      qty.classList.toggle("hidden", this.value !== "מגיע");
