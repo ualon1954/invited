@@ -34,7 +34,7 @@ body {
 }
 
 input, select, textarea, button {
-  width: 450px;
+  width: 440px;
   margin: 12px 0;
   padding: 12px;
   border-radius: 10px;
