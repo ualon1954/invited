@@ -26,8 +26,8 @@ body {
 .container {
   margin-top: 30px;
   background: white;
-  max-width: 450px;
-  width: 100%;
+  max-width: 640px;
+  /* width: 100%; */
   margin: -50px auto 50px auto;
   padding: 30px;
   border-radius: 20px;
