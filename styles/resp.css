@@ -13,7 +13,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: rgb(142, 17, 17);
   text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
 }
 
@@ -81,6 +81,8 @@ button:hover { background: #a4884c; }
 
 p {
   font-size: 36px;
+  color: rgb(71, 7, 207);
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
 }
 
 p #msg {
