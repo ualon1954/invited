@@ -26,7 +26,7 @@ body {
 .container {
   margin-top: 30px;
   background: white;
-  max-width: 640px;
+  max-width: 700px;
   /* width: 100%; */
   margin: -50px auto 50px auto;
   padding: 30px;
@@ -41,7 +41,7 @@ input, select, textarea, button {
   padding: 12px;
   border-radius: 10px;
   border: 1px solid #ddd;
-  font-size: 16px;
+  font-size: 24px;
 }
 
 textarea { resize: none; }
@@ -78,8 +78,8 @@ button:hover { background: #a4884c; }
   to {opacity: 1; transform: translateY(0);}
 }
 
-p#msg {
-  font-size: 16px;
+p #msg {
+  font-size: 24px;
   color: #b89b5e;
   font-weight: bold;
 }
