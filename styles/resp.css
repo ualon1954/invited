@@ -41,11 +41,11 @@ input, select, textarea, button {
   padding: 12px;
   border-radius: 10px;
   border: 1px solid #ddd;
-  font-size: 24px;
+  font-size: 36px;
 }
 
 textarea { resize: none; }
-
+s
 button {
   background: #b89b5e;
   color: white;
@@ -55,11 +55,12 @@ button {
   transition: background 0.3s;
 }
 .btninc {
-    width:15px;
+    width:50px;
 }
+
 #guests {
-   
-  width: 30px; 
+  margin: 10px; 
+  width: 50px; 
   text-align: center;
   
 }
@@ -76,6 +77,10 @@ button:hover { background: #a4884c; }
 @keyframes fadeIn {
   from {opacity: 0; transform: translateY(20px);}
   to {opacity: 1; transform: translateY(0);}
+}
+
+p {
+  font-size: 36px;
 }
 
 p #msg {
