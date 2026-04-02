@@ -84,34 +84,3 @@ p#msg {
 
 
 
-@media screen and (max-width: 3000px) and (min-width: 750px) {
-    .container form {
-      width: 480px;
-      
-    }
-    .result-container .result-box label{
-      width: 320px;  
-    }
-    
-    .result-container .result-box input {
-        
-        width: 70px;  
-      }
-    .form_header {
-      width: 480px;
-    }
-  }
-  @media screen and (max-width: 750px) and (min-width: 480px){
-    .container form {
-      width: 350px;
-    }
-    .result-container .result-box input {
-        width: 90px;  
-      }
-    .result-container .result-box label{
-        width: 200px;  
-    }
-    .form_header {
-      width: 320px;
-    }
-  } 
