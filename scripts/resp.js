@@ -12,6 +12,7 @@ function test() {
 const API = "https://script.google.com/macros/s/AKfycbw87u6zfmBnAuwOweCy7NgDqw78v4vSbPo1qhC20SYD7i0rm_YqdE6CzcWMJajdAwp9YQ/exec";
 
 const params = new URLSearchParams(window.location.search);
+const invname = document.getElementById("name");
 const phone = params.get("phone");
 const attendance = document.getElementById("attendance");
 const qty = document.getElementById("incnum");
@@ -25,7 +26,7 @@ fetch(API + "?phone=" + phone)
   .then(r => r.json())
   .then(d => {
     if (!d) { document.getElementById("msg").innerText = "לא נמצא מוזמן"; return; }
-    //name.value = d["שם"];
+    invname.value = d["Name"];
     mobile.value = d["Phone"];
     guests.value = d["Qynt"];
   });
@@ -40,6 +41,7 @@ function send() {
     method: "POST",
     body: JSON.stringify({
       phone: phone,
+      name: invname.value,
       attendance: attendance.value,
       guests: guests.value
       //notes: notes.value
