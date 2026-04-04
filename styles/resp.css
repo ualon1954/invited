@@ -11,7 +11,7 @@ body {
   /* background: url('https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover; */
   height: 300px;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
   color: rgb(142, 17, 17);
   text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
@@ -66,8 +66,9 @@ button {
   
 }
 #attendance {
-    /* width: 150px; */
+    width: 300px;
     display: block;
+    margin-right: 200px;
     }
 button:hover { background: #a4884c; }
 
