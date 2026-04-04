@@ -98,3 +98,12 @@ p #msg {
   color: #b89b5e;
   font-weight: bold;
 }
+
+#reset {
+  font-size: 36px;
+}
+.readonly input,
+.readonly textarea {
+  pointer-events: none;
+  background-color: #f5f5f5;
+}
