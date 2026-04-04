@@ -121,28 +121,28 @@ p #msg {
       width: 350px;
     }
     label {
-      font-size: 20px;
+      font-size: 16px;
     }
     p {
-      font-size: 20px;
+      font-size: 16px;
     }
     p #msg {
-      font-size: 20px;
+      font-size: 16px;
     }
     input, select, textarea, button {
-      font-size: 20px;
+      font-size: 16px;
     }
     #mobile {
-      font-size: 20px;
+      font-size: 16px;
     }
     #reset {
-      font-size: 20px;
+      font-size: 16px;
     }
     .hero {
       height: 100px;
     }
     .hero h1 {
-      font-size: 30px;
+      font-size: 20px;
     }
     
   }
