@@ -68,7 +68,7 @@ button {
 #attendance {
     width: 300px;
     display: block;
-    margin-right: 200px;
+    /* margin-right: 200px; */
     }
 button:hover { background: #a4884c; }
 
