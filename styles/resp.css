@@ -8,9 +8,9 @@ body {
   color: #333;
 }
 
-html {
+/* html {
   font-size: 67.5%;
-}
+} */
 
 .hero {
   /* background: url('https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover; */
@@ -155,11 +155,11 @@ p #msg {
 
   @media (max-width: 480px) {
     .container {
-      width: 350px;
+      width: 300px;
     }
     label {
       font-size: 16px;
-      color: black;
+      color: blue;
     }
     p {
       font-size: 12px;
