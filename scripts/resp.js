@@ -75,12 +75,14 @@ fetch(API + "?phone=" + phone)
        setContainerReadonly(); 
        document.getElementById("submit").style.display = "none";
        document.getElementById("reset").style.display = "inline";
+       document.getElementById("head").style.display = "none";
 
     }
     else {
        setContainerEdit();
        //document.getElementById("submit").style.display = "block";
        document.getElementById("reset").style.display = "none";
+       document.getElementById("head").style.display = "inline";
     }  
    
     if (d["Status"] == "לא מגיע") {
@@ -130,6 +132,7 @@ function send() {
   setContainerReadonly("form", true);
   //document.getElementsByTagName("BUTTON").disabled = true;;
   document.getElementById("submit").disabled = true;
+  document.getElementById("head").style.display = "none";
   //document.getElementById("incnum").disabled = true;
   //document.getElementsByClassName(".btninc").disabled = true;
  }
@@ -140,6 +143,7 @@ function send() {
    // document.getElementById("incnum").style.display = "block";
     document.getElementById("submit").style.display = "block";
     document.getElementById("reset").style.display = "none";
+    document.getElementById("head").style.display = "inline";
   //   if (msg.innerText != "") {
   //    location.reload(true);
   // }
