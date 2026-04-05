@@ -72,6 +72,7 @@ fetch(API + "?phone=" + phone)
     if (!d) { document.getElementById("msg").innerText = "לא נמצא מוזמן"; return; }
     //alert(attendance.name);
     if (d["Status"] !== "") {
+      
        setContainerReadonly(); 
        document.getElementById("submit").style.display = "none";
        document.getElementById("reset").style.display = "inline";
@@ -95,9 +96,12 @@ fetch(API + "?phone=" + phone)
        
        
     }
-    invname.value = d["Name"];
-    mobile.value = d["Phone"];
-    guests.value = d["Qynt"];
+    // setTimeout(() => {
+       invname.value = d["Name"];
+       mobile.value = d["Phone"];
+       guests.value = d["Qynt"];
+    // }, 9000);
+    
   });
 
 let sent = false;

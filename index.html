@@ -5,58 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>דשבורד חתונה – שיר & איתי 💍</title>
+<link rel="stylesheet" href="styles/dashboard.css" />
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<style>
-body {
-  font-family: Arial, sans-serif;
-  direction: rtl;
-  text-align: center;
-  background: #fdf6f0;
-  color: #333;
-}
-
-h1 { color: #b89b5e; margin-bottom: 5px; }
-h2 { margin-top: 0; }
-
-.container {
-  max-width: 900px;
-  margin: 30px auto;
-  padding: 20px;
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 15px;
-}
-
-th, td {
-  border: 1px solid #ddd;
-  padding: 10px;
-  text-align: center;
-}
-
-th {
-  background: #b89b5e;
-  color: white;
-}
-
-button {
-  background: #b89b5e;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  cursor: pointer;
-  border-radius: 5px;
-  margin: 2px;
-}
-
-button:hover { background: #a4884c; }
-</style>
 </head>
 
 <body>
@@ -73,76 +24,16 @@ button:hover { background: #a4884c; }
     <tr>
       <th>שם</th>
       <th>טלפון</th>
-      <th>סטטוס</th>
-      <th>מגיעים בפועל</th>
+      <th>הגעה</th>
+      <th>כמות המגיעים </th>
       <th>שולחן</th>
-      <th>שלח WhatsApp</th>
+      <!-- <th>שלח WhatsApp</th> -->
     </tr>
   </thead>
   <tbody></tbody>
 </table>
 </div>
 
-<script>
-const API = "https://script.google.com/macros/s/AKfycbwm3OxgqVzusvhHLVTY5LJcbHOqGiMSW2v7PUEZUZ8DYMG_9VHneOTFS6XnwV_uj2yhaw/exec";
-
-function loadDashboard() {
-  fetch(API)
-    .then(res => res.json())
-    .then(data => {
-      let yes = 0, no = 0, pending = 0, totalGuests = 0;
-      let tbodyHTML = "";
-
-      data.forEach(g => {
-        if (g["סטטוס"] === "כן") { yes++; totalGuests += Number(g["מגיעים בפועל"]); }
-        else if (g["סטטוס"] === "לא") no++;
-        else pending++;
-
-        tbodyHTML += `<tr>
-          <td>${g["שם"]}</td>
-          <td>${g["טלפון"]}</td>
-          <td>${g["סטטוס"] || "ממתין"}</td>
-          <td>${g["מגיעים בפועל"] || 0}</td>
-          <td>${g["שולחן"] || "-"}</td>
-          <td><button onclick="sendWA('${g["טלפון"]}', '${g["שם"]}')">WhatsApp</button></td>
-        </tr>`;
-      });
-
-      document.querySelector("#guestTable tbody").innerHTML = tbodyHTML;
-      document.getElementById("summary").innerText = "סה״כ מגיעים: " + totalGuests;
-
-      const ctx = document.getElementById("pieChart").getContext('2d');
-      new Chart(ctx, {
-        type: 'pie',
-        data: {
-          labels: ['מגיעים', 'לא מגיעים', 'ממתינים'],
-          datasets: [{
-            data: [yes, no, pending],
-            backgroundColor: ['#578c6b','#d62946','#d6bf29']
-          }]
-        },
-        options: {
-          responsive: true
-        }
-      });
-    });
-}
-
-// WhatsApp לחיצה אחת
-function sendWA(phone, name) {
-  const msg = `היי ${name} 😊
-שיר ואיתי מזמינים אותך לחתונה 💍 
-נא לאשר הגעה כאן:
-https://ualon1954.github.io/invited/RSVP.html?phone=${phone}`;
-
-  const url = "https://wa.me/972" + phone.substring(1) +
-              "?text=" + encodeURIComponent(msg);
-
-  window.open(url);
-}
-
-loadDashboard();
-</script>
-
+<script src="scripts/dashboard.js"></script>
 </body>
 </html>
