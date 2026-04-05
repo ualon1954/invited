@@ -1,0 +1,46 @@
+/* LG - SMALL LAPTOPS: 1024px - 1200px*/
+
+@media(max-width: 72rem) {
+    /* 1150px / 16px = 71.875 (72rem) */
+    /*  72rem X 16px = 1152px */
+    html {
+        font-size: 56.25%;
+        /*  9px / 16px = 56.25% */
+    }
+}
+
+/* MD - TABLETS: 760px - 1024px*/
+
+@media(max-width: 51rem) {
+    /* 815px / 16px = 50.9375 (51rem) */
+    /*  51rem X 16px = 816px */
+    html {
+        font-size: 50%;
+        /*  8px / 16px = 50% */
+    }
+}
+
+/* SM - PHONE LANDSCAPE: 576px - 768px*/
+
+@media(max-width: 43rem) {
+    /* 680px / 16px = 43rem) */
+    /*  43rem X 16px = 688px */
+    html {
+        font-size: 43.75%;
+        /*  7px / 16px = 43.75% */
+    }
+}
+
+/* XS - PHONE PORTRAINT: < 576px */
+
+@media(max-width: 34rem) {
+    /* 530px / 16px = 34rem) */
+    /*  34rem X 16px = 544px */
+    html {
+        font-size: 37.5%;
+        /*  6px / 16px = 37.5% */
+    }
+    .container {
+      width: 35rem;
+    }
+}
