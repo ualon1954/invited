@@ -1,5 +1,7 @@
 const API = "https://script.google.com/macros/s/AKfycbwWtVoN7ypGVi8eL_tzv_5Uo-JPqZUqdGiR-Zn9xjlP7UaQFQXjYrv18yBzF2fzKzBrHQ/exec";
 //<td><button onclick="sendWA('${g["Phone"]}', '${g["Name"]}')">WhatsApp</button></td>
+//<td>${g["שולחן"] || "-"}</td>
+//<td>${g["Phone"]}</td>
 function loadDashboard() {
   fetch(API)
     .then(res => res.json())
@@ -14,11 +16,8 @@ function loadDashboard() {
 
         tbodyHTML += `<tr>
           <td>${g["Name"]}</td>
-          <td>${g["Phone"]}</td>
           <td>${g["Status"] || "ממתין"}</td>
           <td>${g["Qynt"] || 0}</td>
-          <td>${g["שולחן"] || "-"}</td>
-          
         </tr>`;
       });
 
