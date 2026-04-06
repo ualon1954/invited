@@ -18,6 +18,10 @@ function loadDashboard() {
           <td>${g["Name"]}</td>
           <td>${g["Status"] || "ממתין"}</td>
           <td>${g["Qynt"] || 0}</td>
+          <td>${g["Table1"]}</td>
+          <td>${g["Qynt1"]}</td>
+          <td>${g["Table2"]}</td>
+          <td>${g["Qynt2"]}</td>
         </tr>`;
       });
 

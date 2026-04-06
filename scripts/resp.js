@@ -67,12 +67,14 @@ function setContainerEdit() {
 //setContainerReadonly("form", true);
 
 fetch(API + "?phone=" + phone)
+
   .then(r => r.json())
   .then(d => {
+    
     if (!d) { document.getElementById("msg").innerText = "לא נמצא מוזמן"; return; }
     //alert(attendance.name);
     if (d["Status"] !== "") {
-      
+
        setContainerReadonly(); 
        document.getElementById("submit").style.display = "none";
        document.getElementById("reset").style.display = "inline";
@@ -100,7 +102,9 @@ fetch(API + "?phone=" + phone)
        invname.value = d["Name"];
        mobile.value = d["Phone"];
        guests.value = d["Qynt"];
-    // }, 9000);
+
+      // setTimeout(() => {
+      // }, 9000);
     
   });
 
