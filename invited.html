@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!--Bootstrap 5 icons CDN-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <title>מוזמנים</title>
+
+    <link rel="stylesheet" href="styles/invited.css">
+  </head>
+  <body dir="rtl">
+    <!-- <section class="table__header">
+        <h1>מוזמנים</h1>
+        <div dir="rtl" class="input-group">
+            <input type="search" placeholder="חיפוש">
+            <img src="images/search.png" alt="">
+        </div>
+        
+    </section> -->
+    
+    <div class="dashboard">
+        <div>
+            <label for="total">סך מוזמנים</label>
+            <br>
+            <input type="text" value="" id="total" onclick="totalInv()">
+        </div>
+        <div>
+            <label for="yes">מגיע</label>
+            <br>
+            <input type="text" value="" id="yes" disabled onclick="yes()">
+        </div>
+        <div>
+            <label for="no">לא מגיע</label>
+            <br>
+            <input type="text" value="" id="no" onclick="no()">
+        </div>
+        
+        <div>
+            <label for="norsp">אין תגובה</label>
+            <br>
+            <input type="text" value="" id="norsp" onclick="norsp()">
+        </div>
+     </div> 
+    <div class="table-header">
+        <div>  
+            <label for="records">סך רשומות:</label>
+            <input type="text" value="" id="records" disabled>
+        </div>    
+    </div>
+
+    <section class="p-3">
+    
+
+        <!-- <div class="row">
+            <div class="col-12">
+                <button class="btn btn-primary newUser" data-bs-toggle="modal" data-bs-target="#userForm">New User <i class="bi bi-people"></i></button>
+            </div>
+        </div> -->
+
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-striped table-hover mt-3 text-center table-bordered" id="guestTable">
+
+                    <thead>
+                        
+                        <tr>
+                            <th col-index = 1>#<span class="icon-arrow">&DownArrow;</span></th>
+                            <th col-index = 2>שם<span class="icon-arrow">&DownArrow;</span>
+                                <!-- <select class="table-filter" onchange="filter_rows()">
+                                    <option value="all"></option>
+                                </select>  -->
+                                <input type="text" placeholder="חיפוש"  id="searchInput">
+                            </th>
+                            <th col-index = 3>טלפון<span class="icon-arrow">&DownArrow;</span>
+                                <select class="table-filter" onchange="filter_rows()">
+                                    <option value="all"></option>
+                                </select> 
+                            </th>
+                            <th col-index = 4 >הגעה<span class="icon-arrow">&DownArrow;</span>
+                                <select class="table-filter" id="arrivalSelect" onchange="filter_rows()">
+                                    <option value="all"></option>
+                                </select>
+                            </th>
+                            <th col-index = 5>כמות<span class="icon-arrow">&DownArrow;</span>
+                                <select class="table-filter" onchange="filter_rows()">
+                                    <option value="all"></option>
+                                </select>
+                            </th>
+                            <th col-index = 6>ש1<span class="icon-arrow">&DownArrow;</span>
+                                <select class="table-filter" onchange="filter_rows()">
+                                    <option value="all"></option>
+                                </select>
+                            </th>
+                            <th col-index = 7>כמות<span class="icon-arrow">&DownArrow;</span></th>
+                            <th col-index = 8>ש2<span class="icon-arrow">&DownArrow;</span>
+                                <select class="table-filter" onchange="filter_rows()">
+                                    <option value="all"></option>
+                                </select>
+                            </th>
+                            <th col-index = 9>כמות<span class="icon-arrow">&DownArrow;</span></th>
+                                                    
+                            <th>פעולה</th>
+                        </tr>
+                    </thead>
+
+                    <tbody></tbody>
+
+                </table>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!--Modal Form-->
+    <div class="modal fade" id="userForm">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header" dir="ltr">
+                    <h4 class="modal-title">Fill the Form</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+
+                    <form action="#" id="myForm">
+
+                        <!-- <div class="card imgholder">
+                            <label for="imgInput" class="upload">
+                                <input type="file" name="" id="imgInput">
+                                <i class="bi bi-plus-circle-dotted"></i>
+                            </label>
+                            <img src="./image/Profile Icon.webp" alt="" width="200" height="200" class="img">
+                        </div> -->
+
+                        <div class="inputField">
+                            <div>
+                                <label for="id">#:</label>
+                                <input  name="" id="id" required>
+                            </div>
+                            <div>
+                                <label for="invname">שם:</label>
+                                <input  name="" id="invname" required>
+                            </div>
+                            <div>
+                                <label for="status">הגעה:</label>
+                                <input  name="" id="status" required>
+                            </div>
+                            <div>
+                                <label for="qynt">כמות</label>
+                                <input  name="" id="qynt" required>
+                            </div>
+                            <div>
+                                <label for="table1">שולחן1:</label>
+                                <input  name="" id="table1" required>
+                            </div>
+                            <div>
+                                <label for="qynt1">כמות:</label>
+                                <input  name="" id="qynt1" required>
+                            </div>
+                            <div>
+                                <label for="table2">שולחן2:</label>
+                                <input  name="" id="table2" required>
+                            </div>
+                            <div>
+                                <label for="qynt2">כמות:</label>
+                                <input  name="" id="qynt2" required>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+                <div class="modal-footer" dir="ltr">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" form="myForm" class="btn btn-primary submit">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Read Data Modal-->
+    <div class="modal fade" id="readData">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header" dir="ltr">
+                    <h4 class="modal-title">פרטים</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+
+                    <form action="#" id="myForm">
+
+                        <div class="inputField">
+                            <div>
+                                <label for="id">#:</label>
+                                <input type="number" name="" id="showId" disabled>
+                            </div>
+                            <div>
+                                <label for="invname">שם:</label>
+                                <input type="text" name="" id="showInvname" disabled>
+                            </div>
+                            <div>
+                                <label for="invname">טלפון:</label>
+                                <input type="text" name="" id="showPhone" disabled>
+                            </div>
+                            <div>
+                                <label for="status">הגעה:</label>
+                                <input type="text" name="" id="showStatus" disabled>
+                            </div>
+                            <div>
+                                <label for="qynt">כמות:</label>
+                                <input type="number" name="" id="showQynt" disabled>
+                            </div>
+                            <div>
+                                <label for="table1">שולחן1:</label>
+                                <input type="number" name="" id="showTable1" disabled>
+                            </div>
+                            <div>
+                                <label for="'qynt1'">כמות:</label>
+                                <input type="number" name="" id="showQynt1" disabled>
+                            </div>
+                            <div>
+                                <label for="table2">שולחן2:</label>
+                                <input type="number" name="" id="showTable2" disabled>
+                            </div>
+                            <div>
+                                <label for="'qynt2'">כמות:</label>
+                                <input type="number" name="" id="showQynt2" disabled>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+    <script src="scripts/invited.js"></script>
+    <script>
+        // window.onload = () => {
+        //     console.log(document.querySelector("#emp-table > tbody > tr:nth-child(1) > td:nth-child(2) ").innerHTML);
+        // };
+
+        //getUniqueValuesFromColumn()
+        
+    </script>
+  </body>
+</html>

@@ -1,0 +1,350 @@
+var form = document.getElementById("myForm"),
+    // imgInput = document.querySelector(".img"),
+    // file = document.getElementById("imgInput"),
+    vphone = document.getElementById("phone"),
+    vid = document.getElementById("id"),
+    vinvname = document.getElementById("invname"),
+    vstatus = document.getElementById("status"),
+    vqynt = document.getElementById("qynt"),
+    vtable1 = document.getElementById("table1"),
+    vqynt1 = document.getElementById("qynt1"),
+    vtable2 = document.getElementById("table2"),
+    vqynt2 = document.getElementById("qynt2"),
+    // sDate = document.getElementById("sDate"),
+    submitBtn = document.querySelector(".submit"),
+    userInfo = document.getElementById("data"),
+    modal = document.getElementById("userForm"),
+    modalTitle = document.querySelector("#userForm .modal-title"),
+    newUserBtn = document.querySelector(".newUser")
+    let tbody = document.querySelector("tbody");
+let api = "https://script.google.com/macros/s/AKfycbyhXb7EKkJOAie1ZYGzM-WAsYvR2PSuIGnCOUs3ux3cFWE_mdMxB2dJpCdS8x2X77H4hw/exec";
+
+// let getData = localStorage.getItem('userProfile') ? JSON.parse(localStorage.getItem('userProfile')) : []
+
+let isEdit = false, editId
+//showInfo()
+
+// newUserBtn.addEventListener('click', ()=> {
+//     submitBtn.innerText = 'Submit',
+//     modalTitle.innerText = "Fill the Form"
+//     isEdit = false
+//     imgInput.src = "./image/Profile Icon.webp"
+//     form.reset()
+// })
+
+
+// file.onchange = function(){
+//     if(file.files[0].size < 1000000){  // 1MB = 1000000
+//         var fileReader = new FileReader();
+
+//         fileReader.onload = function(e){
+//             imgUrl = e.target.result
+//             imgInput.src = imgUrl
+//         }
+
+//         fileReader.readAsDataURL(file.files[0])
+//     }
+//     else{
+//         alert("This file is too large!")
+//     }
+// }
+
+
+function showInfo() {
+    fetch(api)
+    .then(res=>res.json())
+    .then(data=> {
+        let todo = data.todo;
+        console.log(todo);
+        let trtd = todo.map(each=> {
+        return `
+
+       <tr">
+            <td>${parseFloat(each[0])}</td>
+            <td>${each[1]}</td>
+            <td>${each[2]}</td>
+            <td>${each[3]}</td>
+            <td>${each[4]}</td>
+            <td>${each[5]}</td>
+            <td>${each[6]}</td>
+            <td>${each[7]}</td>
+            <td>${each[8]}</td>
+            <td>
+                <button class="btn btn-success" onclick="readInfo('${each[0]}', '${each[1]}', '${each[2]}', '${each[3]}', '${each[4]}', '${each[5]}', '${each[6]}', '${each[7]}', '${each[8]}')" data-bs-toggle="modal" data-bs-target="#readData"><i class="bi bi-eye"></i></button>
+
+                <button class="btn btn-primary" onclick="editInfo('${each[0]}', '${each[1]}', '${each[2]}', '${each[3]}', '${each[4]}', '${each[5]}', '${each[6]}', '${each[7]}', '${each[8]}')" data-bs-toggle="modal" data-bs-target="#userForm"><i class="bi bi-pencil-square"></i></button>
+                                         
+            </td>
+        </tr>
+
+        `
+
+    })
+   tbody.innerHTML = trtd.join("");
+    table_rows = document.querySelectorAll("tbody tr");
+    alert(table_rows);
+    getUniqueValuesFromColumn();
+    //console.log(trtd.join(""));
+//  ..console.log(createElement);
+       table_rows
+       
+    })
+}
+showInfo()
+
+
+function readInfo(invname, status, qynt, table1, qynt1, table2, qynt2){
+    document.querySelector('#showInvname').value = invname,
+    document.querySelector("#showStatus").value = status,
+    document.querySelector("#showQynt").value = qynt,
+    document.querySelector("#showTable1").value = table1,
+    document.querySelector("#showQynt1").value = qynt1,
+    document.querySelector("#showTable2").value = table1,
+    document.querySelector("#showQynt2").value = qynt2
+}
+
+
+function editInfo(invname, status, qynt, table1, qynt1, table2, qynt2){
+    // isEdit = true
+    // editId = index
+    // imgInput.src = pic
+    vinvname.value = invname,
+    vstatus.value = status,
+    vqynt.value =qynt,
+    vtable1.value = table1,
+    vqynt1.value = qynt1,
+    vtable2.value = table2,
+    vqynt2.value=qynt2
+    
+    submitBtn.innerText = "עדכון"
+    modalTitle.innerText = "עדכון פרטים"
+}
+
+
+function deleteInfo(index){
+    if(confirm("Are you sure want to delete?")){
+        getData.splice(index, 1)
+        localStorage.setItem("userProfile", JSON.stringify(getData))
+        showInfo()
+    }
+}
+
+
+form.addEventListener('submit', (e)=> {
+    e.preventDefault()
+
+    const information = {
+        picture: imgInput.src == undefined ? "./image/Profile Icon.webp" : imgInput.src,
+        employeeName: userName.value,
+        employeeAge: age.value,
+        employeeCity: city.value,
+        employeeEmail: email.value,
+        employeePhone: phone.value,
+        employeePost: post.value,
+        startDate: sDate.value
+    }
+
+    if(!isEdit){
+        getData.push(information)
+    }
+    else{
+        isEdit = false
+        getData[editId] = information
+    }
+
+    localStorage.setItem('userProfile', JSON.stringify(getData))
+
+    submitBtn.innerText = "Submit"
+    modalTitle.innerHTML = "Fill The Form"
+
+    //showInfo()
+
+    form.reset()
+
+    imgInput.src = "./image/Profile Icon.webp"  
+
+    // modal.style.display = "none"
+    // document.querySelector(".modal-backdrop").remove()
+})
+
+
+// 1. Searching for specific data of HTML table
+const search = document.querySelector('.input-group input');
+
+search.addEventListener('input', searchTable);
+
+function searchTable() {
+       table_rows.forEach((row, i) => {
+        console.log(i);
+        let table_data = row.textContent.toLowerCase();
+        search_data = search.value.toLowerCase();
+        row.classList.toggle('hide', table_data.indexOf(search_data) < 0);
+        row.style.setProperty('--delay', i / 25 + 's');
+        })
+    console.log(document.querySelectorAll('tbody tr:not(.hide)'));
+    document.querySelectorAll('tbody tr:not(.hide)').forEach((visible_row, i) => {
+        visible_row.style.backgroundColor = (i % 2 == 0) ? 'transparent' : '#0000000b';
+    });
+}
+
+//2. Sorting | Ordering data of HTML table
+
+const table_headings = document.querySelectorAll('thead th');
+
+table_headings.forEach((head, i) => {
+  
+    let sort_asc = true;
+    head.onclick = () => {
+        table_headings.forEach(head => head.classList.remove('active'));
+        head.classList.add('active');
+
+        document.querySelectorAll('td').forEach(td => td.classList.remove('active'));
+        table_rows.forEach(row => {
+            row.querySelectorAll('td')[i].classList.add('active');
+        })
+
+        head.classList.toggle('asc', sort_asc);
+        sort_asc = head.classList.contains('asc') ? false : true;
+
+        sortTable(i, sort_asc);
+    }
+})
+  
+
+function sortTable(column, sort_asc) {
+       [...table_rows].sort((a, b) => {
+        let first_row = parseInt(a.querySelectorAll('td')[column].textContent.toLowerCase()),
+            second_row = parseInt(b.querySelectorAll('td')[column].textContent.toLowerCase());
+       
+
+        return sort_asc ? (first_row < second_row ? 1 : -1) : (first_row < second_row ? -1 : 1);
+    })
+        .map(sorted_row => document.querySelector('tbody').appendChild(sorted_row));
+}
+
+//3. Filtering| HTML table data
+
+// Get unique values for the desired columns
+
+// {2 : ["M", "F"], 3 : ["RnD", "Engineering", "Design"], 4 : [], 5 : []}
+
+function getUniqueValuesFromColumn() {
+
+    var unique_col_values_dict = {}
+
+    allFilters = document.querySelectorAll(".table-filter")
+    allFilters.forEach((filter_i) => {
+        col_index = filter_i.parentElement.getAttribute("col-index");
+        
+        const rows = document.querySelectorAll("#tenants-table tbody tr")
+        //console.log(rows);
+        rows.forEach((row) => {
+            cell_value = row.querySelector("td:nth-child("+col_index+")").innerHTML;
+            //console.log(cell_value);
+            // if the col index is already present in the dict
+            if (col_index in unique_col_values_dict) {
+
+                // if the cell value is already present in the array
+                if (unique_col_values_dict[col_index].includes(cell_value)) {
+                    // alert(cell_value + " is already present in the array : " + unique_col_values_dict[col_index])
+
+                } else {
+                    unique_col_values_dict[col_index].push(cell_value)
+                    // alert("Array after adding the cell value : " + unique_col_values_dict[col_index])
+
+                }
+
+
+            } else {
+                unique_col_values_dict[col_index] = new Array(cell_value)
+            }
+        });
+
+        
+    });
+
+    // for(i in unique_col_values_dict) {
+    //     alert("Column index : " + i + " has Unique values : \n" + unique_col_values_dict[i]);
+    // }
+
+   updateSelectOptions(unique_col_values_dict)
+
+};
+
+//getUniqueValuesFromColumn();
+
+// Add <option> tags to the desired columns based on the unique values
+
+function updateSelectOptions(unique_col_values_dict) {
+    allFilters = document.querySelectorAll(".table-filter")
+
+    allFilters.forEach((filter_i) => {
+        col_index = filter_i.parentElement.getAttribute('col-index')
+
+        unique_col_values_dict[col_index].forEach((i) => {
+            filter_i.innerHTML = filter_i.innerHTML + `\n<option value="${i}">${i}</option>`
+        });
+
+    });
+};
+
+
+// Create filter_rows() function
+
+// filter_value_dict {2 : Value selected, 4:value, 5: value}
+
+function filter_rows() {
+    var total = 0;  
+    allFilters = document.querySelectorAll(".table-filter")
+    var filter_value_dict = {}
+
+    allFilters.forEach((filter_i) => {
+        col_index = filter_i.parentElement.getAttribute('col-index')
+
+        value = filter_i.value
+        if (value != "all") {
+            filter_value_dict[col_index] = value;
+        }
+    });
+
+    var col_cell_value_dict = {};
+
+    const rows = document.querySelectorAll("#tenants-table tbody tr");
+    rows.forEach((row) => {
+        var display_row = true;
+
+        allFilters.forEach((filter_i) => {
+            col_index = filter_i.parentElement.getAttribute('col-index')
+            col_cell_value_dict[col_index] = row.querySelector("td:nth-child(" + col_index+ ")").innerHTML
+        })
+
+        for (var col_i in filter_value_dict) {
+            filter_value = filter_value_dict[col_i]
+            row_cell_value = col_cell_value_dict[col_i]
+            
+            //if (row_cell_value.indexOf(filter_value) == -1 && filter_value != "all") {
+
+            if (row_cell_value != filter_value && filter_value != "all") {
+                display_row = false;
+                break;
+            }
+
+
+        }
+
+        if (display_row == true) {
+            row.style.display = "table-row"
+            total = total + 1
+           
+
+        } else {
+            row.style.display = "none"
+
+        }
+
+         
+
+    })
+    document.getElementById("total").value = total;
+
+}
