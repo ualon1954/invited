@@ -54,47 +54,98 @@ function showInfo() {
     fetch(api)
     .then(res=>res.json())
     .then(data=> {
-        let todo = data.todo;
-        console.log(todo);
-        let trtd = todo.map(each=> {
-        return `
+        let tbodyHTML = "";
+        
 
-       <tr">
-            <td>${parseFloat(each[0])}</td>
-            <td>${each[1]}</td>
-            <td>${each[2]}</td>
-            <td>${each[3]}</td>
-            <td>${each[4]}</td>
-            <td>${each[5]}</td>
-            <td>${each[6]}</td>
-            <td>${each[7]}</td>
-            <td>${each[8]}</td>
-            <td>
-                <button class="btn btn-success" onclick="readInfo('${each[0]}', '${each[1]}', '${each[2]}', '${each[3]}', '${each[4]}', '${each[5]}', '${each[6]}', '${each[7]}', '${each[8]}')" data-bs-toggle="modal" data-bs-target="#readData"><i class="bi bi-eye"></i></button>
+       data.forEach(g => {
+        
+        tbodyHTML += `<tr>
+          <td>${g["ID"]}</td>
+          <td>${g["Name"]}</td>
+          <td>${g["Phone"]}</td>
+          <td>${g["Status"] || "ממתין"}</td>
+          <td>${g["Qynt"] || 0}</td>
+          <td>${g["Table1"]}</td>
+          <td>${g["Qynt1"]}</td>
+          <td>${g["Table2"]}</td>
+          <td>${g["Qynt2"]}</td>
+          <td>
+              <button class="btn btn-success" onclick="readInfo('${g["ID"]}', '${g["Name"]}', '${g["Phone"]}', '${g["Status"]}', '${g["Qynt"]}', '${g["Table1"]}', '${g["Qynt1"]}',
+              '${g["Table2"]}', '${g["Qynt2"]}')" data-bs-toggle="modal" data-bs-target="#readData"><i class="bi bi-eye"></i></button>
+          </td>
+        </tr>`;
+      });
+  
 
-                <button class="btn btn-primary" onclick="editInfo('${each[0]}', '${each[1]}', '${each[2]}', '${each[3]}', '${each[4]}', '${each[5]}', '${each[6]}', '${each[7]}', '${each[8]}')" data-bs-toggle="modal" data-bs-target="#userForm"><i class="bi bi-pencil-square"></i></button>
-                                         
-            </td>
-        </tr>
-
-        `
-
-    })
-   tbody.innerHTML = trtd.join("");
-    table_rows = document.querySelectorAll("tbody tr");
-    alert(table_rows);
-    getUniqueValuesFromColumn();
-    //console.log(trtd.join(""));
-//  ..console.log(createElement);
-       table_rows
-       
-    })
+  document.querySelector("#guestTable tbody").innerHTML = tbodyHTML;
+  table_rows = document.querySelectorAll("tbody tr");
+  document.getElementById("total").value = document.querySelector('tbody').rows.length;
+  document.getElementById("records").value = document.querySelector('tbody').rows.length;
+  getYes(document.querySelector('tbody').rows.length);
+  getNo(document.querySelector('tbody').rows.length);
+  getNoRsp(document.querySelector('tbody').rows.length);
+  getUniqueValuesFromColumn();
+  });
 }
 showInfo()
 
+function getYes(len) {
+    //alert(len);
+    var table1 = document.getElementById("guestTable");
+   
+   
+    var count = 0;
+    for (var i=1;i<len+1;i++) {
 
-function readInfo(invname, status, qynt, table1, qynt1, table2, qynt2){
+        
+        if (table1.rows[i].cells[3].innerText === "מגיע") {
+            count++;
+        }
+        
+    }
+   
+    document.getElementById("yes").value  = count;
+}
+
+function getNo(len) {
+    //alert(len);
+    var table1 = document.getElementById("guestTable");
+   
+   
+    var count = 0;
+    for (var i=1;i<len+1;i++) {
+
+        
+        if (table1.rows[i].cells[3].innerText === "לא מגיע") {
+            count++;
+        }
+        
+    }
+   
+    document.getElementById("no").value  = count;
+}
+
+function getNoRsp(len) {
+    //alert(len);
+    var table1 = document.getElementById("guestTable");
+   
+   
+    var count = 0;
+    for (var i=1;i<len+1;i++) {
+
+        
+        if (table1.rows[i].cells[3].innerText === "ממתין") {
+            count++;
+        }
+        
+    }
+   
+    document.getElementById("norsp").value  = count;
+}
+function readInfo(id, invname, phone, status, qynt, table1, qynt1, table2, qynt2){
+    document.querySelector('#showId').value = id,
     document.querySelector('#showInvname').value = invname,
+    document.querySelector('#showPhone').value = phone,
     document.querySelector("#showStatus").value = status,
     document.querySelector("#showQynt").value = qynt,
     document.querySelector("#showTable1").value = table1,
@@ -169,9 +220,10 @@ form.addEventListener('submit', (e)=> {
 
 
 // 1. Searching for specific data of HTML table
-const search = document.querySelector('.input-group input');
+//const search = document.querySelector('.input-group input');
+//const search = document.querySelector('.name-filter');
 
-search.addEventListener('input', searchTable);
+//search.addEventListener('input', onchange);
 
 function searchTable() {
        table_rows.forEach((row, i) => {
@@ -186,6 +238,22 @@ function searchTable() {
         visible_row.style.backgroundColor = (i % 2 == 0) ? 'transparent' : '#0000000b';
     });
 }
+
+document.getElementById("searchInput").addEventListener("keyup", function () {
+    let filter = this.value;
+    let rows = document.querySelectorAll("#guestTable tbody tr");
+
+    rows.forEach(row => {
+        let cell = row.cells[1]; // column index (Name = 1)
+        let text = cell.textContent;
+
+        if (text.includes(filter)) {
+            row.style.display = "";
+        } else {
+            row.style.display = "none";
+        }
+    });
+});
 
 //2. Sorting | Ordering data of HTML table
 
@@ -213,8 +281,8 @@ table_headings.forEach((head, i) => {
 
 function sortTable(column, sort_asc) {
        [...table_rows].sort((a, b) => {
-        let first_row = parseInt(a.querySelectorAll('td')[column].textContent.toLowerCase()),
-            second_row = parseInt(b.querySelectorAll('td')[column].textContent.toLowerCase());
+        let first_row = a.querySelectorAll('td')[column].textContent.toLowerCase(),
+            second_row = b.querySelectorAll('td')[column].textContent.toLowerCase();
        
 
         return sort_asc ? (first_row < second_row ? 1 : -1) : (first_row < second_row ? -1 : 1);
@@ -236,7 +304,7 @@ function getUniqueValuesFromColumn() {
     allFilters.forEach((filter_i) => {
         col_index = filter_i.parentElement.getAttribute("col-index");
         
-        const rows = document.querySelectorAll("#tenants-table tbody tr")
+        const rows = document.querySelectorAll("#guestTable tbody tr")
         //console.log(rows);
         rows.forEach((row) => {
             cell_value = row.querySelector("td:nth-child("+col_index+")").innerHTML;
@@ -291,6 +359,28 @@ function updateSelectOptions(unique_col_values_dict) {
 
 // Create filter_rows() function
 
+//Dashboard functions  
+function totalInv() {
+    document.getElementById('arrivalSelect').value = "";
+    filter_rows();
+   
+}
+
+function yes() {
+    document.getElementById('arrivalSelect').value = "מגיע";
+    filter_rows();
+   
+}
+function no() {
+    document.getElementById('arrivalSelect').value = "לא מגיע";
+    filter_rows();
+}
+
+function norsp() {
+    document.getElementById('arrivalSelect').value = "ממתין";
+    filter_rows();
+}
+
 // filter_value_dict {2 : Value selected, 4:value, 5: value}
 
 function filter_rows() {
@@ -309,7 +399,7 @@ function filter_rows() {
 
     var col_cell_value_dict = {};
 
-    const rows = document.querySelectorAll("#tenants-table tbody tr");
+    const rows = document.querySelectorAll("#guestTable tbody tr");
     rows.forEach((row) => {
         var display_row = true;
 
@@ -345,6 +435,6 @@ function filter_rows() {
          
 
     })
-    document.getElementById("total").value = total;
+    document.getElementById("records").value = total;
 
 }

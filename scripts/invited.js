@@ -60,15 +60,10 @@ function showInfo() {
        data.forEach(g => {
         
         tbodyHTML += `<tr>
-          <td>${g["ID"]}</td>
           <td>${g["Name"]}</td>
-          <td>${g["Phone"]}</td>
           <td>${g["Status"] || "ממתין"}</td>
           <td>${g["Qynt"] || 0}</td>
-          <td>${g["Table1"]}</td>
-          <td>${g["Qynt1"]}</td>
-          <td>${g["Table2"]}</td>
-          <td>${g["Qynt2"]}</td>
+          
           <td>
               <button class="btn btn-success" onclick="readInfo('${g["ID"]}', '${g["Name"]}', '${g["Phone"]}', '${g["Status"]}', '${g["Qynt"]}', '${g["Table1"]}', '${g["Qynt1"]}',
               '${g["Table2"]}', '${g["Qynt2"]}')" data-bs-toggle="modal" data-bs-target="#readData"><i class="bi bi-eye"></i></button>
@@ -98,7 +93,7 @@ function getYes(len) {
     for (var i=1;i<len+1;i++) {
 
         
-        if (table1.rows[i].cells[3].innerText === "מגיע") {
+        if (table1.rows[i].cells[1].innerText === "מגיע") {
             count++;
         }
         
@@ -116,7 +111,7 @@ function getNo(len) {
     for (var i=1;i<len+1;i++) {
 
         
-        if (table1.rows[i].cells[3].innerText === "לא מגיע") {
+        if (table1.rows[i].cells[1].innerText === "לא מגיע") {
             count++;
         }
         
@@ -134,7 +129,7 @@ function getNoRsp(len) {
     for (var i=1;i<len+1;i++) {
 
         
-        if (table1.rows[i].cells[3].innerText === "ממתין") {
+        if (table1.rows[i].cells[1].innerText === "ממתין") {
             count++;
         }
         
@@ -377,7 +372,7 @@ function no() {
 }
 
 function norsp() {
-    document.getElementById('arrivalSelect').value = "אין תגובה";
+    document.getElementById('arrivalSelect').value = "ממתין";
     filter_rows();
 }
 
