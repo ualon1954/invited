@@ -336,6 +336,7 @@ thead th.active,tbody td.active {
 
 .dashboard label:hover {
     background-color: #d4d5d5;
+    font-size: 1rem;
 }
 
 #total {
