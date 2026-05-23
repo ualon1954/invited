@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>שיר & איתי 💍 חתונה</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles/resp1.css" />
+<link rel="stylesheet" href="styles/bracha.css" />
+<!-- <link rel="stylesheet" href="styles/queris.css" /> -->
+</head>
+
+<body>
+
+<!-- <div class="hero">
+  <h1>💍 שיר & איתי 💍</h1>
+</div> -->
+
+<div class="container" id="form">
+  <img src="images/הזמנה לחתונה שיר ויובל.jpg" alt="שיר ויובל" width="500" height="600">
+  <h1>💍 שיר & איתי 💍</h1>
+  <p id="head">נשמח לראותכם חוגגים איתנו 🥳 ❤️</p>
+  <!-- <label for="name">שם</label> -->
+  <input id="name" disabled>
+  <!-- <label for="mobile">טלפון</label> -->
+  <input id="mobile" disabled>
+  <!-- <div class = "atend" dir="rtl"> -->
+    <div>
+      <label for="attendance" class="glitch">הגעה</label>
+    </div>
+    <button id ="yes" class="attendance" value="מגיע">מגיע</button>
+    <button id ="no" class="attendance" value="לא מגיע">לא מגיע</button>
+    <!-- <select id="attendance">
+      <option value="מגיע">נגיע בשמחה 🎉</option>
+      <option value="לא מגיע">לא נוכל להגיע</option>
+    </select> -->
+
+    <!-- <input id="guests" type="number"> -->
+     
+  <div id="incnum"> 
+      <!-- <label for="incnum">כמות</label> -->
+      <button id="encr" type="button" class="btninc" onclick="changeValue(1)">+</button>
+      <input  id="guests"  value="1" min="1" max="8">
+      <button id="decr" type="button" class="btninc" onclick="changeValue(-1)">-</button>
+      
+  </div>
+
+  <!-- <div class="faq-container"> -->
+
+    <div id="faq-item">
+        <div class="faq-question">
+           הוספת ברכה / הערה
+            <span class="icon">+</span>
+        </div>
+
+        <div class="faq-answer">
+            <div class="faq-answer-content">
+                <textarea id="notes" rows="6" class="faq-answer-content cols="50" placeholder="רשמו ברכה / הערה לאישור הגעה..."></textarea>
+            </div>
+        </div>
+    </div>
+
+     
+<!-- </div> -->
+  <!-- <textarea id="notes" placeholder="הערות (כשרות, הסעות וכו')"></textarea> -->
+
+  <button id ="submit" onclick="send()">אישור הגעה</button>
+  <div>
+     <a id="reset" href="javascript:resend()">שינוי בחירה</a>
+  </div>
+  <p id="msg"></p>
+</div>
+
+<script src="scripts/resp1.js"></script>
+<script src="scripts/bracha.js"></script>
+
+</body>
+</html>

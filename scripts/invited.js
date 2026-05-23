@@ -239,7 +239,7 @@ document.getElementById("searchInput").addEventListener("keyup", function () {
     let rows = document.querySelectorAll("#guestTable tbody tr");
 
     rows.forEach(row => {
-        let cell = row.cells[1]; // column index (Name = 1)
+        let cell = row.cells[0]; // column index (Name = 1)
         let text = cell.textContent;
 
         if (text.includes(filter)) {
@@ -257,7 +257,7 @@ const table_headings = document.querySelectorAll('thead th');
 table_headings.forEach((head, i) => {
   
     let sort_asc = true;
-    head.onclick = () => {
+    head.ondblclick = () => {
         table_headings.forEach(head => head.classList.remove('active'));
         head.classList.add('active');
 

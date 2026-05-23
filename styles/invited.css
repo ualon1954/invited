@@ -369,3 +369,18 @@ thead th.active,tbody td.active {
     font-weight: 600;
     color: red;
   }
+
+  .status.מגיע {
+    background-color: #86e49d;
+    color: #006b21;
+}
+
+.status.לא מגיע {
+    background-color: #d893a3;
+    color: #b30021;
+}
+
+.status.ממתין {
+    background-color: #ebc474;
+}
+
