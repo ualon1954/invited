@@ -193,10 +193,11 @@ p #msg {
         
   }
 
-  /* MOBILE - PORNAINT */
-  @media screen and (max-width: 750px) and (min-width: 480px){
+  /* MOBILE - PORTRAINT */
+  @media screen and (max-width: 768px){
     .container {
       width: 250px;
+      background-color: azure;
     }
     label {
       font-size: 16px;
@@ -226,7 +227,7 @@ p #msg {
     
   }
 
-  @media (max-width: 480px) {
+  /* @media (max-width: 480px) {
     .container {
       width: 300px;
     }
@@ -254,6 +255,6 @@ p #msg {
     }
     .hero h1 {
       font-size: 20px;
-    }
+    } */
     
-  }
+  /* } */
