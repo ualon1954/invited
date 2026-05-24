@@ -239,7 +239,7 @@ p #msg {
 
   @media screen and (max-width: 480px){
     .container {
-      width: 200px;
+      width: 230px;
       background-color: rgb(53, 112, 230);
     }
     label {
