@@ -240,6 +240,7 @@ p #msg {
   @media screen and (max-width: 480px){
     .container {
       width: 100%;
+      margin-right: 5px;
       background-color: rgb(53, 112, 230);
     }
     label {
