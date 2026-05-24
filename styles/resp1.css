@@ -109,11 +109,15 @@ button {
   font-size: 24px;
 }
 #yes {
+  display: inline-block;
   margin-left: 30px;
   color: green;
   border-color: green;
+  font-size: 18px;
  }
 #no {
+  display: inline-block;
+  font-size: 18px;
    color: red;
    border-color: red;
 }
