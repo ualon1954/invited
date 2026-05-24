@@ -237,6 +237,45 @@ p #msg {
     
   }
 
+  @media screen and (max-width: 480px){
+    .container {
+      width: 200px;
+      background-color: rgb(53, 112, 230);
+    }
+    label {
+      font-size: 36px;
+      color: blue;
+    }
+    #yes {
+      width: 100px;
+    }
+    #no {
+      width: 100px;
+    }
+    p {
+      font-size: 16px;
+    }
+    p #msg {
+      font-size: 14px;
+    }
+    input, select, textarea, button {
+      font-size: 16px;
+    }
+    #mobile {
+      font-size: 16px;
+    }
+    #reset {
+      font-size: 16px;
+    }
+    .hero {
+      height: 100px;
+    }
+    .hero h1 {
+      font-size: 20px;
+    }
+    
+  }
+
   /* @media (max-width: 480px) {
     .container {
       width: 300px;
