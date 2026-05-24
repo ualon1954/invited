@@ -109,14 +109,14 @@ button {
   font-size: 24px;
 }
 #yes {
-  display: inline-block;
+  display: inline;
   margin-left: 30px;
   color: green;
   border-color: green;
   font-size: 18px;
  }
 #no {
-  display: inline-block;
+  display: inline;
   font-size: 18px;
    color: red;
    border-color: red;
@@ -206,6 +206,12 @@ p #msg {
     label {
       font-size: 36px;
       color: blue;
+    }
+    #yes {
+      width: 100px;
+    }
+    #no {
+      width: 100px;
     }
     p {
       font-size: 16px;
