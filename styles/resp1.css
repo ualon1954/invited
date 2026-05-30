@@ -204,7 +204,8 @@ p #msg {
 @media screen and (max-width: 767px) {
   .container {
     background-color: #b89b5e;
-    width: 100%;
+    width: 95%;
+   
   }
     #name {
       width: 300px;
