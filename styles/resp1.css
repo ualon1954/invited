@@ -36,9 +36,11 @@ body {
 }
 
 .container {
+  width: 100%;
+  padding: 10px;
   margin-top: 30px;
   background: white;
-  max-width: 758px;
+  /* max-width: 758px; */
   /* width: 100%; */
   /* margin: -50px auto 50px auto; */
   /* padding: 30px; */
@@ -198,114 +200,31 @@ p #msg {
   100% { transform: translate(0); opacity: 1; }
 }
 
-/* MOBILE - PORTRAINT */
-  @media screen and (max-width: 768px){
-    .container {
-      width: 100%;
-      background-color: rgb(98, 182, 33);
-    }
-    label {
-      font-size: 36px;
-      color: blue;
-    }
-    #yes {
-      width: 100px;
-    }
-    #no {
-      width: 100px;
-    }
-    p {
-      font-size: 16px;
-    }
-    p #msg {
-      font-size: 14px;
-    }
-    input, select, textarea, button {
-      font-size: 16px;
-    }
-    #mobile {
-      font-size: 16px;
-    }
-    #reset {
-      font-size: 16px;
-    }
-    .hero {
-      height: 100px;
-    }
-    .hero h1 {
-      font-size: 20px;
-    }
-    
+/* Mobile */
+@media screen and (max-width: 767px) {
+  .container {
+    background-color: #b89b5e;
+    width: 100%;
   }
-
-  @media screen and (max-width: 480px){
-    .container {
-      width: 100%;
-      margin-right: 5px;
-      background-color: rgb(53, 112, 230);
-    }
-    label {
-      font-size: 36px;
-      color: blue;
-    }
-    #yes {
-      width: 100px;
-    }
-    #no {
-      width: 100px;
-    }
-    p {
-      font-size: 16px;
-    }
-    p #msg {
-      font-size: 14px;
-    }
-    input, select, textarea, button {
-      font-size: 16px;
-    }
-    #mobile {
-      font-size: 16px;
-    }
-    #reset {
-      font-size: 16px;
-    }
-    .hero {
-      height: 100px;
-    }
-    .hero h1 {
-      font-size: 20px;
-    }
-    
-  }
-
- @media (max-width: 480px) {
-    .container {
+    #name {
       width: 300px;
     }
-    label {
-      font-size: 16px;
-      color: blac;
-    }
-    p {
-      font-size: 12px;
-    }
-    p #msg {
-      font-size: 10px;
-    }
-    input, select, textarea, button {
-      font-size: 16px;
-    }
     #mobile {
-      font-size: 16px;
+      width: 300px;
     }
-    #reset {
-      font-size: 16px;
-    }
-    .hero {
-      height: 100px;
-    }
-    .hero h1 {
-      font-size: 20px;
-    }
-    
   }
+
+
+/* Tablet */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    background-color: aquamarine;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1024px) {
+  .container {
+    background-color: chartreuse;
+  }
+}
