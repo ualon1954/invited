@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="he"></html>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -6,32 +7,56 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Responsive Form</title>
   <link rel="stylesheet" href="styles/resp2.css">
+  <link rel="stylesheet" href="styles/bracha.css">
 </head>
 <body>
 
 <div class="form-container">
-    <h2>Contact Form</h2>
+    <h1>💍 שיר & איתי 💍</h1>
+    <p id="head">נשמח לראותכם חוגגים איתנו 🥳 ❤️</p>
 
     <form id="contactForm">
         <div class="form-group">
-            <label>Name</label>
-            <input type="text" id="name" required>
+            <!-- <label>Name</label> -->
+            <input id="name" disabled>
         </div>
 
         <div class="form-group">
-            <label>Email</label>
-            <input type="email" id="email" required>
+            <!-- <label>Email</label> -->
+            <input id="mobile" disabled>
+        </div>    
+        <button id ="yes" value="מגיע">מגיע</button>
+        <button id ="no" value="לא מגיע">לא מגיע</button>
+     
+            
+        <div id="incnum" class="form-group">
+           <button id="encr" type="button" class="btninc" onclick="changeValue(1)">+</button>
+           <input  id="guests"  value="1" min="1" max="8">
+           <button id="decr" type="button" class="btninc" onclick="changeValue(-1)">-</button>
         </div>
+        <div id="faq-item" class="form-group">
+            <div class="faq-question">
+            הוספת ברכה / הערה
+                <span class="icon">+</span>
+            </div>
 
-        <div class="form-group">
+            <div class="faq-answer">
+                <div class="faq-answer-content">
+                    <textarea id="notes" rows="6" class="faq-answer-content cols="50" placeholder="רשמו ברכה / הערה לאישור הגעה..."></textarea>
+                </div>
+            </div>
+        </div>    
+   
+        <!-- <div class="form-group">
             <label>Message</label>
             <textarea id="message" rows="4"></textarea>
-        </div>
+        </div> -->
 
-        <button type="submit">Send</button>
+        <!-- <button type="submit">Send</button> -->
     </form>
 </div>
-<script src="scrips/resp2.js" ></script>
+<script src="scripts/resp2.js" ></script>
+<script src="scripts/bracha.js" ></script>
 
 </body>
 </html>

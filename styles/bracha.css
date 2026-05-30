@@ -4,6 +4,7 @@
 }
 
 #faq-item {
+    margin-top: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -38,7 +39,7 @@
 } */
 
 .faq-answer{
-    width: 100%;
+    width: 540px;
     max-height:0;
     overflow:hidden;
     transition:max-height 0.4s ease;
