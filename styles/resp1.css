@@ -45,7 +45,8 @@ body {
   border-radius: 20px;
   border-color: blue;
   border-width: 3px;
-  /* box-shadow: 0 10px 25px rgba(0,0,0,0.15); */
+  /* 
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15); */
   animation: fadeIn 1s ease-in-out;
 }
 img {
@@ -54,7 +55,7 @@ img {
 }
 
 input, select, button {
-  width: 100%;
+  /* swidth: 100%; */
   margin: 12px 0;
   padding: 12px;
   border-radius: 10px;
