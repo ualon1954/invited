@@ -133,7 +133,9 @@ body {
             .form-container {
                 padding: 15px;
             }
-       
+            p {
+            font-size: 24px;
+            }    
             input,
             select,
             textarea,
@@ -151,6 +153,9 @@ body {
             .form-container {
                 padding: 10px;
             }
+            p {
+            font-size: 18px;
+            }  
            
             h2 {
                 font-size: 22px;
