@@ -26,6 +26,7 @@ let attendance = "";
 const yes = document.getElementById("yes");
 const no = document.getElementById("no");
 const qty = document.getElementById("incnum");
+
 // let select = document.getElementById("attendance");
 // let selectedOption = select.options[select.selectedIndex];
 
@@ -152,6 +153,7 @@ fetch(API + "?phone=" + phone)
        mobile.value = d["Phone"];
        guests.value = d["Qynt"];
        notes.value = d["Notes"];
+       document.querySelector("h1").textContent = d["Name"];
 
       // setTimeout(() => {
       // }, 9000);
