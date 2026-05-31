@@ -11,14 +11,14 @@ questions.forEach(question => {
 
             if(faq !== item){
                 faq.classList.remove("active");
-                faq.querySelector(".faq-answer").style.maxHeight = null;
+                faq.querySelector("#faq-answer").style.maxHeight = null;
             }
 
         });
 
         item.classList.toggle("active");
 
-        const answer = item.querySelector(".faq-answer");
+        const answer = item.querySelector("#faq-answer");
 
         if(item.classList.contains("active")){
             answer.style.maxHeight = answer.scrollHeight + "px";

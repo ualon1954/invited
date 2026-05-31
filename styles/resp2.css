@@ -73,7 +73,7 @@ body {
         #yes {
             padding: 5px;
             margin-left: 30px;
-            width: 120px;
+            width: 100px;
             display: inline;
             /* margin-left: 30px; */
             color: green;
@@ -86,7 +86,7 @@ body {
         }
         #no {
             padding: 5px;
-            width: 120px;
+            width: 100px;
             display: inline;
             font-size: 18px;
             color: red;
@@ -146,6 +146,9 @@ body {
             button {
                 width: 100%;
             }
+            #notes {
+                width: 400px;
+            }
         }
 
         /* Small Phones */
@@ -160,5 +163,8 @@ body {
             h1 {
                 font-size: 22px;
                 text-align: center;
+            }
+            #notes {
+                width: 480px;
             }
         }

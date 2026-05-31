@@ -38,8 +38,9 @@
     background:#f0f3f7;
 } */
 
-.faq-answer{
-    width: 540px;
+#faq-answer{
+    align-items: center;
+    width: 100%;
     max-height:0;
     overflow:hidden;
     transition:max-height 0.4s ease;
@@ -65,7 +66,7 @@ textarea {
    color: blue;
  }
 #notes {
-    width: 90%;
+    /* width: 90%; */
     padding: 5px;
     color: blue;
 }
