@@ -21,7 +21,7 @@ body {
             margin-bottom: 15px;
         }
         #name {
-            display: none;
+            display: inlne;
         }
         #mobile {
             display: none;
