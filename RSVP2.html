@@ -29,9 +29,11 @@
         <div class="form-group">
             <!-- <label>Email</label> -->
             <input id="mobile" disabled>
-        </div>    
-        <button id ="yes" value="מגיע">מגיע</button>
-        <button id ="no" value="לא מגיע">לא מגיע</button>
+        </div>  
+        <div class="form-group">
+            <button id ="yes" value="מגיע">מגיע</button>
+            <button id ="no" value="לא מגיע">לא מגיע</button>
+        </div>
      
             
         <div id="incnum" class="form-group">
@@ -50,17 +52,20 @@
                     <textarea id="notes" rows="6" class="faq-answer-content cols="50" placeholder="רשמו ברכה / הערה לאישור הגעה..."></textarea>
                 </div>
             </div>
+            <p id="msg"></p>
         </div>    
    
         <!-- <div class="form-group">
             <label>Message</label>
             <textarea id="message" rows="4"></textarea>
         </div> -->
-
-        <button type="submit">Send</button>
-        <div>
-           <a id="reset" href="javascript:resend()">שינוי בחירה</a>
-       </div>
+        <div class="form-group">
+            <button id ="submit" onclick="send()">אישור הגעה</button>
+        </div> 
+        <div class="form-group"></div>   
+            <a id="reset" href="javascript:resend()">שינוי בחירה</a>
+        </div>
+      
     </form>
 </div>
 <script src="scripts/resp2.js" ></script>

@@ -65,7 +65,7 @@ document.getElementById("faq-item").style.display = "none";
 
 function setContainerReadonly() {
   const container = document.getElementById("form");
-  const fields = container.querySelectorAll("input, textarea, select, button");
+  const fields = container.querySelectorAll("input, textarea, select, button, span");
 
   fields.forEach(field => {
     if (field.tagName === "SELECT") {
@@ -82,7 +82,7 @@ function setContainerReadonly() {
 
 function setContainerEdit() {
   const container = document.getElementById("form");
-  const fields = container.querySelectorAll("input, textarea, select, button");
+  const fields = container.querySelectorAll("input, textarea, select, button, span");
 
   fields.forEach(field => {
     if (field.tagName === "SELECT") {

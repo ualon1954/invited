@@ -105,6 +105,9 @@ body {
             border-color: blue;
             border-width: 2px;
         }
+        #submit {
+            margin-top: 10px;
+        }
         .btninc {
             padding: 5px;
             width:50px;

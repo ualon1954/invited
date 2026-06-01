@@ -40,8 +40,8 @@ const qty = document.getElementById("incnum");
 //      document.getElementById("incnum").style.display = "none";
 //       }
 //   });
-document.getElementById("incnum").style.display = "block";
-document.getElementById("faq-item").style.display = "block";
+// document.getElementById("incnum").style.display = "none";
+// document.getElementById("faq-item").style.display = "none";
   yes.addEventListener("click", function () {
      //alert(this.value);
        document.getElementById("yes").style.backgroundColor = "green";
@@ -53,14 +53,15 @@ document.getElementById("faq-item").style.display = "block";
        document.getElementById("incnum").style.display = "block";
        document.getElementById("faq-item").style.display = "block";
        document.getElementById("guests").value = "1";
-       attendance = "מגיע";
+       attendance = this.value;
     });
 
   no.addEventListener("click", function () {
-      // alert("no");
+      //alert(this.value);
       document.getElementById("no").style.backgroundColor = "red"; 
       document.getElementById("no").style.color = "white";
-      document.getElementById("yes").style.backgroundColor = "#f5f5f5";document.getElementById("yes").style.color = "white";
+      document.getElementById("yes").style.backgroundColor = "#f5f5f5";
+      document.getElementById("yes").style.color = "white";
       document.getElementById("yes").style.color = "green";
       document.getElementById("yes").style.border = "none";
       document.getElementById("yes").style.borderColor = "green";
@@ -68,8 +69,7 @@ document.getElementById("faq-item").style.display = "block";
       document.getElementById("faq-item").style.display = "none";
       document.getElementById("guests").value = "";
       document.getElementById("notes").value = "";
-      attendance = "לא מגיע"
-            
+      attendance = this.value;            
   });
 
 function setContainerReadonly() {
@@ -177,7 +177,7 @@ function send() {
     })
   })
   .then(() => {
-    if (attendance === "מגיע" || guests > 0) {
+    if (attendance === "מגיע") {
        msg.innerText = "❤️ תודה! נתראה בחתונה!";
        document.getElementById("incnum").style.display = "block";
     }
@@ -189,7 +189,7 @@ function send() {
       document.getElementById("submit").style.display = "none";
       document.getElementById("reset").style.display = "inline";
   });
-  setContainerReadonly("form", true);
+  setContainerReadonly("contactForm", true);
   //document.getElementsByTagName("BUTTON").disabled = true;;
   document.getElementById("submit").disabled = true;
   document.getElementById("head").style.display = "none";
