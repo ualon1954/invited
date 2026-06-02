@@ -40,10 +40,11 @@ const qty = document.getElementById("incnum");
 //      document.getElementById("incnum").style.display = "none";
 //       }
 //   });
-// document.getElementById("incnum").style.display = "none";
-// document.getElementById("faq-item").style.display = "none";
+document.getElementById("incnum").style.display = "none";
+document.getElementById("greeting-box").style.display = "none";
   yes.addEventListener("click", function () {
      //alert(this.value);
+       event.preventDefault();
        document.getElementById("yes").style.backgroundColor = "green";
        document.getElementById("yes").style.color = "white";
        document.getElementById("yes").style.borderColor = "blue";
@@ -51,13 +52,14 @@ const qty = document.getElementById("incnum");
        document.getElementById("no").style.color = "red";
        document.getElementById("no").style.backgroundColor = "#f5f5f5";
        document.getElementById("incnum").style.display = "block";
-       document.getElementById("faq-item").style.display = "block";
+       document.getElementById("greeting-box").style.display = "block";
        document.getElementById("guests").value = "1";
        attendance = this.value;
     });
 
   no.addEventListener("click", function () {
       //alert(this.value);
+      event.preventDefault();
       document.getElementById("no").style.backgroundColor = "red"; 
       document.getElementById("no").style.color = "white";
       document.getElementById("yes").style.backgroundColor = "#f5f5f5";
@@ -66,7 +68,7 @@ const qty = document.getElementById("incnum");
       document.getElementById("yes").style.border = "none";
       document.getElementById("yes").style.borderColor = "green";
       document.getElementById("incnum").style.display = "none";
-      document.getElementById("faq-item").style.display = "none";
+      document.getElementById("greeting-box").style.display = "none";
       document.getElementById("guests").value = "";
       document.getElementById("notes").value = "";
       attendance = this.value;            
@@ -136,7 +138,7 @@ fetch(API + "?phone=" + phone)
       document.getElementById("yes").style.color = "white";
       document.getElementById("yes").style.margin = "0";
       document.getElementById("incnum").style.display = "block";
-      document.getElementById("faq-item").style.display = "block";
+      document.getElementById("greeting-box").style.display = "block";
     
     }
     else if (d["Status"] == "לא מגיע"){
@@ -152,7 +154,7 @@ fetch(API + "?phone=" + phone)
        invname.value = d["Name"];
        mobile.value = d["Phone"];
        guests.value = d["Qynt"];
-       notes.value = d["Notes"];
+      //  notes.value = d["Notes"];
        document.querySelector("h1").textContent = d["Name"];
 
       // setTimeout(() => {
@@ -163,6 +165,7 @@ fetch(API + "?phone=" + phone)
 let sent = false;
 
 function send() {
+  event.preventDefault();
   if (sent) return;
   sent = true;
 
@@ -173,7 +176,7 @@ function send() {
       name: invname.value,
       attendance: attendance,
       guests: guests.value,
-      notes: notes.value
+      // notes: notes.value
     })
   })
   .then(() => {
@@ -189,7 +192,7 @@ function send() {
       document.getElementById("submit").style.display = "none";
       document.getElementById("reset").style.display = "inline";
   });
-  setContainerReadonly("contactForm", true);
+  //setContainerReadonly("form-container", true);
   //document.getElementsByTagName("BUTTON").disabled = true;;
   document.getElementById("submit").disabled = true;
   document.getElementById("head").style.display = "none";
@@ -198,8 +201,8 @@ function send() {
  }
 
  function resend() {
-  
-      setContainerEdit();
+    event.preventDefault();
+    setContainerEdit();
    // document.getElementById("incnum").style.display = "block";
     document.getElementById("submit").style.display = "block";
     document.getElementById("reset").style.display = "none";

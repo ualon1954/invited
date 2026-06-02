@@ -1,11 +1,13 @@
-.greeting-box {
-    max-width: 180px;
+#greeting-box {
+    display: flex;
+    align-items: center;
+    max-width: 400px;
     margin: 20px auto;
     font-family: Arial, sans-serif;
 }
 
 #toggleBtn {
-    width: 100%;
+    width: 180px;
     padding: 12px;
     background: #0d6efd;
     color: white;

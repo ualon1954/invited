@@ -2,9 +2,12 @@ const btn = document.getElementById("toggleBtn");
 const area = document.getElementById("messageArea");
 
 btn.addEventListener("click", () => {
-    area.classList.toggle("open");
-
-    btn.textContent = area.classList.contains("open")
-        ? "סגור ברכה ▲"
-        : "כתוב ברכה ✍️";
+    event.preventDefault();
+    if (area.style.display === "none") {
+        area.style.display = "block";
+        btn.textContent = "סגור ברכה ▲";
+    } else {
+        area.style.display = "none";
+        btn.textContent = "כתוב ברכה ✍️";
+    }
 });
