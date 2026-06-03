@@ -216,8 +216,8 @@ body {
         /* Small Phones */
         @media screen and (max-width: 480px) {
             .form-container {
-                padding: 0px;
-                background-color: rgb(130, 234, 244);
+                padding: 3px;
+                background-color: rgb(203, 241, 215);
             }
             p {
             font-size: 16px;
