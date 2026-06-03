@@ -52,6 +52,7 @@ btn.addEventListener("click", () => {
 //   });
 document.getElementById("incnum").style.display = "none";
 document.getElementById("greeting-box").style.display = "none";
+document.getElementById("submit").style.display = "none";
   yes.addEventListener("click", function () {
      //alert(this.value);
        event.preventDefault();
@@ -63,6 +64,7 @@ document.getElementById("greeting-box").style.display = "none";
        document.getElementById("no").style.backgroundColor = "#f5f5f5";
        document.getElementById("incnum").style.display = "block";
        document.getElementById("greeting-box").style.display = "block";
+       document.getElementById("submit").style.display = "block";
        document.getElementById("guests").value = "1";
        attendance = this.value;
     });
@@ -79,6 +81,7 @@ document.getElementById("greeting-box").style.display = "none";
       document.getElementById("yes").style.borderColor = "green";
       document.getElementById("incnum").style.display = "none";
       document.getElementById("greeting-box").style.display = "none";
+      document.getElementById("submit").style.display = "block";
       document.getElementById("guests").value = "";
       document.getElementById("notes").value = "";
       attendance = this.value;            
