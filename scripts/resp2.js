@@ -194,7 +194,7 @@ function send() {
   })
   .then(() => {
     if (attendance === "מגיע") {
-       msg.innerText = "❤️ תודה! נתראה בחתונה!";
+       msg.innerText = "תודה! נתראה בחתונה!❤️";
        document.getElementById("incnum").style.display = "block";
     }
     else   {
@@ -205,7 +205,7 @@ function send() {
       document.getElementById("submit").style.display = "none";
       document.getElementById("reset").style.display = "inline";
   });
-  //setContainerReadonly("form-container", true);
+  setContainerReadonly("form-container", true);
   //document.getElementsByTagName("BUTTON").disabled = true;;
   document.getElementById("submit").disabled = true;
   document.getElementById("head").style.display = "none";
@@ -214,7 +214,7 @@ function send() {
  }
 
  function resend() {
-    event.preventDefault();
+    //event.preventDefault();
     setContainerEdit();
    // document.getElementById("incnum").style.display = "block";
     document.getElementById("submit").style.display = "block";
