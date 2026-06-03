@@ -138,14 +138,62 @@ body {
         }
 
         img {
-           margin-top: 10px;
+            margin-top: 10px;
             width: 100%;
             height: 600px;
         }
+
+        /* Bracha */
+
+        #greeting-box {
+            display: flex;
+            align-items: center;
+            max-width: 400px;
+            margin: 20px auto;
+            font-family: Arial, sans-serif;
+        }
+
+        #toggleBtn {
+            width: 180px;
+            padding: 12px;
+            background: #0d6efd;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #toggleBtn:hover {
+            background: #0b5ed7;
+        }
+
+        #messageArea {
+            margin-top: 10px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        #messageArea.open {
+            max-height: 300px;
+        }
+
+        #greetingText {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+
+
         /* Mobile */
         @media screen and (max-width: 768px) {
             .form-container {
-                padding: 15px;
+                /* padding: 15px; */
+                background-color: burlywood;
             }
             p {
             font-size: 24px;
@@ -168,7 +216,8 @@ body {
         /* Small Phones */
         @media screen and (max-width: 480px) {
             .form-container {
-                padding: 10px;
+                /* padding: 10px; */
+                background-color: rgb(130, 234, 244);
             }
             p {
             font-size: 16px;

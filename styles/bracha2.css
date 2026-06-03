@@ -23,6 +23,13 @@
 
 #messageArea {
     margin-top: 10px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+#messageArea.open {
+    max-height: 300px;
 }
 
 #greetingText {

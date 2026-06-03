@@ -26,7 +26,17 @@ let attendance = "";
 const yes = document.getElementById("yes");
 const no = document.getElementById("no");
 const qty = document.getElementById("incnum");
+const btn = document.getElementById("toggleBtn");
+const area = document.getElementById("messageArea");
 
+btn.addEventListener("click", () => {
+    event.preventDefault();
+    area.classList.toggle("open");
+
+    btn.textContent = area.classList.contains("open")
+        ? "סגור ברכה ▲"
+        : "כתוב ברכה ✍️";
+});
 // let select = document.getElementById("attendance");
 // let selectedOption = select.options[select.selectedIndex];
 
