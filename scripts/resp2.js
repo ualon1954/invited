@@ -6,10 +6,17 @@
 //     alert("Thank you " + name + "! Your form was submitted.");
 // });
 
-  function changeValue(step) {
+function changeValue(step) {
   let input = document.getElementById("guests");
-  let value = parseInt(input.value) || 0;
+  // let value = parseInt(input.value) || 0;
+  let value = parseInt(input.value), max=8 ,min=1;
+ 
   input.value = Math.max(1, value + step);
+  // alert(input.value);
+  
+  document.getElementById("submit").style.display = "inline";
+  attendance = "מגיע";
+  
 }
 
 function test() {
@@ -17,7 +24,7 @@ function test() {
 }
 
 //const API = "https://script.google.com/macros/s/AKfycbx6uTxT536lhpqiIAXcuuYtYvOYeCHxNsBkdDyxTYSS-rBR218sdtVuscUKUoTCv7HS/exec";
-const API = "https://script.google.com/macros/s/AKfycbzd_5waqwO4QvkSm67NvItgj5u4raknoqFa1hkWAH0dtV_hnGXOKTT66XPz9MXUSsO9/exec";
+const API = "https://script.google.com/macros/s/AKfycbxsWwZfe4Umjxxhm5i8ta5_VoCp_HoVQyZLjWxtx5s46y-tPCNacGfv9RmjxMxpWJ-Zkg/exec";
 
 const params = new URLSearchParams(window.location.search);
 const invname = document.getElementById("name");
@@ -28,14 +35,27 @@ const no = document.getElementById("no");
 const qty = document.getElementById("incnum");
 const btn = document.getElementById("toggleBtn");
 const area = document.getElementById("messageArea");
+const waze = document.getElementById("waze");
+// const textarea = document.getElementById("greetingText");
+let greetingText = document.getElementById("greetingText");
+
+function textChange() {
+  document.getElementById("submit").style.display = "inline";
+  attendance = "מגיע";
+}
 
 btn.addEventListener("click", () => {
     event.preventDefault();
     area.classList.toggle("open");
 
     btn.textContent = area.classList.contains("open")
-        ? "סגור ברכה ▲"
-        : "כתוב ברכה ✍️";
+        ? "סגור ברכה / הערה  ▲"
+        : "כתוב ברכה / הערה ✍️";
+});
+
+waze.addEventListener('click', () => {
+    event.preventDefault();
+    window.location.href = 'https://waze.com/ul/hsv8sxty41';
 });
 // let select = document.getElementById("attendance");
 // let selectedOption = select.options[select.selectedIndex];
@@ -101,6 +121,9 @@ function setContainerReadonly() {
     if (field.tagName === "INPUT"){
       field.readOnly = true;
     }
+    if (field.tagName === "TEXTAREA"){
+      field.readOnly = true;
+    }
   });
 }  
 
@@ -116,6 +139,9 @@ function setContainerEdit() {
       field.disabled = false;
     }  
     if (field.tagName === "INPUT"){
+      field.readOnly = false;
+    }
+    if (field.tagName === "TEXTAREA"){
       field.readOnly = false;
     }
   });
@@ -152,6 +178,16 @@ fetch(API + "?phone=" + phone)
       document.getElementById("yes").style.margin = "0";
       document.getElementById("incnum").style.display = "block";
       document.getElementById("greeting-box").style.display = "block";
+      if (d["Notes"] != "") {
+          //  document.getElementById("messageArea").style.maxHeight = "300px";
+          //  btn.textContent = "סגור ברכה / הערה  ▲";
+          area.classList.toggle("open");
+          btn.textContent = "סגור ברכה / הערה  ▲";
+        }
+        // else {
+        //   document.getElementById("messageArea").style.maxHeight = "0px";
+        //   btn.textContent = "כתוב ברכה / הערה ✍️";
+        // }
     
     }
     else if (d["Status"] == "לא מגיע"){
@@ -167,7 +203,7 @@ fetch(API + "?phone=" + phone)
        invname.value = d["Name"];
        mobile.value = d["Phone"];
        guests.value = d["Qynt"];
-      //  notes.value = d["Notes"];
+       greetingText.value = d["Notes"];
        document.querySelector("h1").textContent = d["Name"];
 
       // setTimeout(() => {
@@ -189,7 +225,7 @@ function send() {
       name: invname.value,
       attendance: attendance,
       guests: guests.value,
-      // notes: notes.value
+      greetingText: greetingText.value
     })
   })
   .then(() => {
@@ -223,6 +259,7 @@ function send() {
     document.getElementById("yes").style.margin = "30px";
     document.getElementById("no").style.display = "inline";
     document.getElementById("head").style.display = "inline";
+    document.getElementById("submit").style.display = "none";
     if (guests > 0) {
       attendance = "מגיע";
     } 
