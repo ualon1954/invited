@@ -77,12 +77,12 @@ body {
             font-size: 24px;
         } */
 
-        #waze {
+        .nav {
             width: 64px;
             height: 64px;
             cursor: pointer;
         }
-        #waze:hover{
+        .nav:hover{
             opacity: 0.8;
         }
         #yes {

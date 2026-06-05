@@ -36,6 +36,7 @@ const qty = document.getElementById("incnum");
 const btn = document.getElementById("toggleBtn");
 const area = document.getElementById("messageArea");
 const waze = document.getElementById("waze");
+const googlemaps = document.getElementById("google");
 // const textarea = document.getElementById("greetingText");
 let greetingText = document.getElementById("greetingText");
 
@@ -56,6 +57,11 @@ btn.addEventListener("click", () => {
 waze.addEventListener('click', () => {
     event.preventDefault();
     window.location.href = 'https://waze.com/ul/hsv8sxty41';
+});
+
+googlemaps.addEventListener('click', () => {
+    event.preventDefault();
+    window.location.href = 'https://maps.app.goo.gl/D1gg45R6KCH4Z1HE6';
 });
 // let select = document.getElementById("attendance");
 // let selectedOption = select.options[select.selectedIndex];
