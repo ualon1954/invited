@@ -76,6 +76,15 @@ body {
             padding: 5px;
             font-size: 24px;
         } */
+
+        #waze {
+            width: 64px;
+            height: 64px;
+            cursor: pointer;
+        }
+        #waze:hover{
+            opacity: 0.8;
+        }
         #yes {
             padding: 5px;
             margin-left: 30px;
