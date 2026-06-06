@@ -35,8 +35,12 @@ const no = document.getElementById("no");
 const qty = document.getElementById("incnum");
 const btn = document.getElementById("toggleBtn");
 const area = document.getElementById("messageArea");
-const waze = document.getElementById("waze");
+const navarea = document.getElementsByClassName("nav");
+const google = document.getElementById("google");
 const googlemaps = document.getElementById("google");
+const navigate = document.getElementById("navigate");
+
+
 // const textarea = document.getElementById("greetingText");
 let greetingText = document.getElementById("greetingText");
 
@@ -53,6 +57,17 @@ btn.addEventListener("click", () => {
         ? "סגור ברכה / הערה  ▲"
         : "כתוב ברכה / הערה ✍️";
 });
+
+    navigate.addEventListener("click", () => {
+    event.preventDefault();
+    navarea[0].classList.toggle("open");
+    navarea[1].classList.toggle("open");
+
+    navigate.textContent = navarea[0].classList.contains("open")
+        ? "נווט אל מיקום 🧭 -"
+        : "נווט אל מיקום 🧭 +";
+});
+
 
 waze.addEventListener('click', () => {
     event.preventDefault();
@@ -79,6 +94,8 @@ googlemaps.addEventListener('click', () => {
 document.getElementById("incnum").style.display = "none";
 document.getElementById("greeting-box").style.display = "none";
 document.getElementById("submit").style.display = "none";
+// document.getElementById("waze").style.display = "none";
+// document.getElementById("google").style.display = "none";
   yes.addEventListener("click", function () {
      //alert(this.value);
        event.preventDefault();
@@ -91,6 +108,7 @@ document.getElementById("submit").style.display = "none";
        document.getElementById("incnum").style.display = "block";
        document.getElementById("greeting-box").style.display = "block";
        document.getElementById("submit").style.display = "inline";
+       document.getElementById("navigate").style.display = "none";
        document.getElementById("guests").value = "1";
        attendance = this.value;
     });
@@ -107,9 +125,10 @@ document.getElementById("submit").style.display = "none";
       document.getElementById("yes").style.borderColor = "green";
       document.getElementById("incnum").style.display = "none";
       document.getElementById("greeting-box").style.display = "none";
+      document.getElementById("navigate").style.display = "none";
       document.getElementById("submit").style.display = "inline";
       document.getElementById("guests").value = "";
-      document.getElementById("notes").value = "";
+      // document.getElementById("notes").value = "";
       attendance = this.value;            
   });
 
@@ -183,7 +202,8 @@ fetch(API + "?phone=" + phone)
       document.getElementById("yes").style.color = "white";
       document.getElementById("yes").style.margin = "0";
       document.getElementById("incnum").style.display = "block";
-      document.getElementById("greeting-box").style.display = "block";
+      document.getElementById("navigate").style.display = "inline-block";
+      
       if (d["Notes"] != "") {
           //  document.getElementById("messageArea").style.maxHeight = "300px";
           //  btn.textContent = "סגור ברכה / הערה  ▲";
@@ -201,7 +221,9 @@ fetch(API + "?phone=" + phone)
        document.getElementById("no").style.backgroundColor = "red";
        document.getElementById("no").style.color = "white";
        document.getElementById("incnum").style.display = "none";
-       document.getElementById("notes").style.display = "none";
+      //  document.getElementById("notes").style.display = "none";
+       document.getElementById("navigate").style.display = "none";
+      //  document.getElementsByClassName("nav").style.display = "none";
        
        
     }

@@ -76,15 +76,36 @@ body {
             padding: 5px;
             font-size: 24px;
         } */
+        #navigate {
+           display: inline-block;
+           width: 125px;
+           padding: 5px;
+           color: white;
+           background-color: blue;
+           border-radius: 5px;
+        }
 
         .nav {
+            max-height: 0px;
             width: 64px;
             height: 64px;
             cursor: pointer;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
         }
         .nav:hover{
             opacity: 0.8;
         }
+        .nav.open {
+           max-height: 60px; 
+        }
+        /* #waze {
+           max-height: 0px;  
+        }
+        #waze.open {
+           display: inline-block;
+           max-height: 60px;
+        } */
         #yes {
             padding: 5px;
             margin-left: 30px;
