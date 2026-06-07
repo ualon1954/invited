@@ -64,8 +64,8 @@ btn.addEventListener("click", () => {
     navarea[1].classList.toggle("open");
 
     navigate.textContent = navarea[0].classList.contains("open")
-        ? "נווט אל מיקום 🧭 -"
-        : "נווט אל מיקום 🧭 +";
+        ? "נווט אל מיקום 🧭  ❌"
+        : "נווט אל מיקום 🧭  ➕";
 });
 
 
@@ -181,6 +181,9 @@ fetch(API + "?phone=" + phone)
     
     if (!d) { document.getElementById("msg").innerText = "לא נמצא מוזמן"; return; }
     //alert(attendance.name);
+    if (d["Status"] == "") {
+       document.getElementById("navigate").style.display = "none";
+    }
     if (d["Status"] !== "") {
 
        setContainerReadonly(); 
@@ -202,11 +205,14 @@ fetch(API + "?phone=" + phone)
       document.getElementById("yes").style.color = "white";
       document.getElementById("yes").style.margin = "0";
       document.getElementById("incnum").style.display = "block";
+      document.getElementById("toggleBtn").style.display = "inline-block";
+      document.getElementById("greeting-box").style.display = "block";
       document.getElementById("navigate").style.display = "inline-block";
       
+      
       if (d["Notes"] != "") {
-          //  document.getElementById("messageArea").style.maxHeight = "300px";
-          //  btn.textContent = "סגור ברכה / הערה  ▲";
+           document.getElementById("messageArea").style.maxHeight = "300px";
+           btn.textContent = "סגור ברכה / הערה  ▲";
           area.classList.toggle("open");
           btn.textContent = "סגור ברכה / הערה  ▲";
         }
@@ -260,6 +266,7 @@ function send() {
     if (attendance === "מגיע") {
        msg.innerText = "תודה! נתראה בחתונה!❤️";
        document.getElementById("incnum").style.display = "block";
+       document.getElementById("navigate").style.display = "inline-block";
     }
     else   {
       msg.innerText = "בחירתכם נקלטה!";
@@ -288,6 +295,7 @@ function send() {
     document.getElementById("no").style.display = "inline";
     document.getElementById("head").style.display = "inline";
     document.getElementById("submit").style.display = "none";
+    document.getElementById("navigate").style.display = "none";
     if (guests > 0) {
       attendance = "מגיע";
     } 
