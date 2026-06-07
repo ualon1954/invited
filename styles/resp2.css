@@ -94,6 +94,7 @@ body {
         }
 
         .nav {
+            
             max-height: 0px;
             width: 64px;
             height: 64px;
@@ -153,7 +154,7 @@ body {
         }
 
         #reset {
-            font-size: 16px;
+            font-size: 20px;
         }
         .btninc {
             padding: 5px;
@@ -165,7 +166,7 @@ body {
         }
 
         #guests {
-            margin: 10px; 
+            /* margin: 10px;  */
             width: 45px; 
             padding: 5px;
             text-align: center;
@@ -241,7 +242,7 @@ body {
         @media screen and (max-width: 768px) {
             .form-container {
                 /* padding: 15px; */
-                background-color: burlywood;
+                background-color: rgb(173, 211, 242);
             }
             p {
             font-size: 24px;
